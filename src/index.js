@@ -1,2 +1,2 @@
-import subClass from './ClassTree';
+import subClass from './subClass';
 export default subClass;
