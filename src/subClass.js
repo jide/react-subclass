@@ -5,7 +5,7 @@ const getDisplayName = Component => Component.displayName || Component.name || '
 const factory = ({ propName = 'subClass', separator = '__' }) => {
   return arg => {
     const wrapComponent = componentName => WrappedComponent => {
-      const convertToClassName = (element, isRoot = false) => { console.log(element);
+      const convertToClassName = (element, isRoot = false) => {
         if (element.props) {
           let props = {};
 
