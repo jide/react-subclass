@@ -6,7 +6,7 @@ const factory = ({ propName = 'subClass', separator = '__' }) => {
   return arg => {
     const wrapComponent = componentName => WrappedComponent => {
       const convertToClassName = (element, isRoot = false) => {
-        if (element.props) {
+        if (element && element._isReactElement && element.props) {
           let props = {};
 
           if (element.props[propName] || isRoot) {
@@ -19,9 +19,7 @@ const factory = ({ propName = 'subClass', separator = '__' }) => {
           }
 
           if (element.props.children) {
-            props.children = Array.isArray(element.props.children) ?
-              element.props.children.map(child => convertToClassName(child)) :
-              convertToClassName(element.props.children);
+            props.children = React.Children.map(element.props.children, child => convertToClassName(child));
           }
 
           return React.cloneElement(element, props);

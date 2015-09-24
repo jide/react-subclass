@@ -23,7 +23,7 @@
     "dev": "npm run server-dev"
   },
   "dependencies": {
-    "react": "*"
+    "react": "0.13.x"
   },
   "devDependencies": {
     "babel": "*",
